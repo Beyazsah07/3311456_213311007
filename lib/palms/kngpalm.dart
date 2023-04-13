@@ -24,7 +24,7 @@ class _kngpalmState  extends State<kngpalm> {
 
 
                 },
-              ),
+              ),//şuan işlevsizdir
             ],
           ),
 
@@ -45,7 +45,7 @@ class _kngpalmState  extends State<kngpalm> {
                           ))
 
 
-                      )
+                      ) //biçimlendirme için kullanıldı
                     ]
 
                 )),

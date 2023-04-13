@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
 
       theme: ThemeData(
            primarySwatch:Colors.green
-      ),
+      ),//appbarın yeşil olması
     );
   }
 }
@@ -49,7 +49,7 @@ class MyApp extends StatelessWidget {
   const MyHomePage({super.key, required this.title});
   final String title;
   State<MyHomePage> createState() => _MyHomePageState();
- }
+ }//MaterialPageRoute yardımıyla navigasyon sisteminin oluşturulmasında kullanıldı
 
 
 class _MyHomePageState extends State<MyHomePage> {
@@ -59,7 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
         appBar: AppBar(
             centerTitle: true,
-            title: Text(widget.title),
+            title: Text(widget.title),//My Home Page'in titleına erişmek için kullanılır.
             actions: [
               badges.Badge(
                   position: badges.BadgePosition.topEnd(top: 10, end: 10),
@@ -81,7 +81,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
                       ]))
 
-              , Flexible(child: TextButton(
+              , Flexible(
+                child: TextButton(
                 child: const Text('Giriş Yap'
                     , style: TextStyle(
 
@@ -93,13 +94,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 onPressed: () {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => LoginScreen()));
-                },
+                },//LoginScreene gitmek amacıyla kullanıldı
 
               )
                 ,)
             ])
 
-        , resizeToAvoidBottomInset: false,
+        , resizeToAvoidBottomInset: false, //boyut açısından bir hatayı düzeltmek için kullanıldı.
         body:
 
              Column(
@@ -109,7 +110,7 @@ class _MyHomePageState extends State<MyHomePage> {
               Flexible(child:
               CarouselSlider(
                 options: CarouselOptions(
-                    autoPlay: true
+                    autoPlay: true //otomatik oynatma
                 ),
                 items: imgList.map((item) =>
                     Container(
@@ -268,7 +269,8 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
 
-  final List<Widget> imageSliders = imgList
+  final List<Widget> imageSliders = imgList // bu parça yukarıdaki ile bir bütündür Carousel Sliderın oluşması ve
+  // çalışmasını sağlarlar
       .map((item) =>
       Container(
         child: Container(
@@ -298,15 +300,15 @@ class _MyHomePageState extends State<MyHomePage> {
                       child: Text(
                         'No. ${imgList.indexOf(item)} image',
                         style: const TextStyle(
-                          color: Colors.white,
+                          color: Colors.black,
                           fontSize: 20.0,
                           fontWeight: FontWeight.bold,
                         ),
-                      ),
+                      ), //numaralandırma
                     ),
                   ),
-                ],
-              )),
+                ],//Yığını oluşturacak widgetleri tutar
+              )),//resimler yığından çekilir ClipRRect kenarları yuvarlatır
         ),
       ))
       .toList();

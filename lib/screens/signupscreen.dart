@@ -15,6 +15,24 @@ class SignupScreen extends StatefulWidget{
 }
 
 class _SignupScreenState extends State<SignupScreen> {
+  final _usernameController = TextEditingController();
+  final _passwordController = TextEditingController();
+  final _mailcontroller = TextEditingController();
+  void _handleLogin() {
+    final username = _usernameController.text.trim();
+    final password = _passwordController.text.trim();
+    final email = _mailcontroller.text.trim();
+    if (username.isNotEmpty && password.isNotEmpty && email.isNotEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Sistem henüz hazır değil.'),
+        ),
+      );
+    }
+  }
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,28 +45,33 @@ class _SignupScreenState extends State<SignupScreen> {
           child: ListView(
               children: [
                 TextFormField(
+                  controller: _usernameController,
                   decoration: const InputDecoration(
                       prefixIcon: Icon(Icons.person),
                       labelText: 'İsminiz',
                       hintText: 'İsim',
                       border: OutlineInputBorder(
                           borderSide: BorderSide(color: Colors.green))),
+                  onEditingComplete: _handleLogin,
                 ),
                 const SizedBox(
                   height: 10,
                 ),
                 TextFormField(
+                  controller: _mailcontroller,
                   decoration: const InputDecoration(
                       prefixIcon: Icon(Icons.email),
                       labelText: 'Email',
                       hintText: 'mail@',
                       border: OutlineInputBorder(
                           borderSide: BorderSide(color: Colors.green))),
+                  onEditingComplete: _handleLogin,
                 ),
                 const SizedBox(
                   height: 10,
                 ),
                 TextFormField(
+                  controller: _passwordController,
                   obscureText: true,
                   decoration: const InputDecoration(
                       prefixIcon: Icon(Icons.lock),
@@ -56,8 +79,10 @@ class _SignupScreenState extends State<SignupScreen> {
                       hintText: 'Sifre',
                       border: OutlineInputBorder(
                           borderSide: BorderSide(color: Colors.green))),
+                  onEditingComplete: _handleLogin,
                 ),
             TextFormField(
+              controller: _passwordController,
               obscureText: true,
               decoration: const InputDecoration(
                   prefixIcon: Icon(Icons.lock),
@@ -65,7 +90,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   hintText: 'Sifreni doğrula',
                   border: OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.green))),
-
+              onEditingComplete: _handleLogin,
 
             )
               ]),
