@@ -55,21 +55,18 @@ class _AboutusState  extends State<Aboutus> {
             ),
             SizedBox(height: 10.0),
             Text(
-              'Adres: Örnek Mahallesi, Örnek Sokak No: 1',
+              'Adres:Antalya,Zümrütova,07200 Muratpaşa/Antalya ',
               style: Theme.of(context).textTheme.titleMedium,
             ),
             Text(
-              'Telefon: 0 541 425 77 44',
+              'Telefon: ',
               style: Theme.of(context).textTheme.titleMedium,
             ),
             Text(
               'E-posta: Yalipeyzaj@outlook.com',
               style: Theme.of(context).textTheme.titleMedium,
             ),
-            Text(
-              'Konum: Antalya,Zümrütova,07200 Muratpaşa/Antalya',
-              style: Theme.of(context).textTheme.titleMedium,
-            ),
+
           ],
         ),
       ),
